@@ -5,9 +5,23 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Residuo;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Imports\ResiduosImport;
 
 class ResiduoController extends Controller
 {
+
+    public function store(Request $req) {
+        $arquivo = $req->arquivo;
+        try {
+            Excel::queueImport(new ResiduosImport, $arquivo);
+            return response()->json(["message" => "Residuos added"], 200);
+        } catch (\Throwable $e) {
+            return response()->json(["message" => $e->getMessage()], 500);
+        }
+            
+    }
+
     public function index() {
         $residuos = Residuo::all();
         return response()->json($residuos, 200);
