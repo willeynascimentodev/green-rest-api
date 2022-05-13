@@ -33,12 +33,14 @@ Para a última rota, adicionar caminho completo do arquivo com o atributo arquiv
 
 ## Para os testes automatizados
 
-1 - Baixar as collections para o postman no seguinte link:
+1 - Baixe a collection para o postman no seguinte link:
 
 **[Clique aqui](https://drive.google.com/file/d/1vfK8s-zry3pMyeIBHh2emHbNAuv55aN4/view?usp=sharing)**
 
-2 - Adicionar nas variáveis globais do postman o caminho absolute do arquivo com o nome: import_file_name (foi a solução para alimentar via API sem usar interface).
+2 - Importe a collection no postman
 
-3 - Desmarcar a opção Keep variable values (Para resetar o token de autenticação na próxima iteração de testes)
+3 - Adicionar nas variáveis globais do postman o caminho absolute do arquivo com o nome: import_file_name (foi a solução para alimentar via API sem usar interface).
+
+4 - Desmarcar a opção "Keep variable values" antes no momento de rodar os testes (Para resetar o token de autenticação na próxima iteração de testes)
 
 
