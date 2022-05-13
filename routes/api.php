@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Api\ResiduoController;
+use App\Http\Controllers\Api\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,4 +16,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::resource('residuos', ResiduoController::class)->names('residuos');
+Route::group(['middleware' => ['api.jwt']], function() {
+    Route::resource('residuos', ResiduoController::class)->names('residuos');
+});
+
+Route::resource('users', UserController::class)->names('users');
